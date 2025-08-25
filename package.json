@@ -1,0 +1,30 @@
+{
+  "name": "claude-cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+      "claude-cli": "src/index.js"
+  },
+  "description": "CLI utility for talking to Claude",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goopletdev/claude-cli.git"
+  },
+  "author": "goopletdev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goopletdev/claude-cli/issues"
+  },
+  "homepage": "https://github.com/goopletdev/claude-cli#readme",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "chalk": "^5.6.0",
+    "cli-highlight": "^2.1.11",
+    "dotenv": "^17.2.1"
+  }
+}
