@@ -1,13 +1,24 @@
 #!/usr/bin/env node
-import 'dotenv/config';
 import axios from 'axios';
 import chalk from 'chalk';
 import { highlight } from 'cli-highlight';
+import dotenv from 'dotenv';
 import fs from 'fs';
+import dirname from 'path';
 import path from 'path';
 import readline from 'readline';
+import { fileURLToPath } from 'url';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const envPath = path.join(__dirname, '..', '.env');
+dotenv.config({ path: envPath});
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
+if (!ANTHROPIC_API_KEY) {
+    console.error(chalk.red('❌ ANTHROPIC_API_KEY not found in environment or .env file'));
+    process.exit(1);
+}
+
 const API_URL = 'https://api.anthropic.com/v1/messages';
 const HISTORY_FILE = path.join('data', 'history.json');
 
